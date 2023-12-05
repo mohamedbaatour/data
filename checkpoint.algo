@@ -1,0 +1,43 @@
+ALGORITHM checkpoint.algo
+
+/*problem 1*/
+VAR
+    set1, set2, distinct_elements
+
+BEGIN
+    set1 = [3, 1, 7, 9]
+    set2 = [2, 4, 1, 9, 3]
+    distinct_elements = []
+
+    FOR EACH element IN set1 DO
+        IF element NOT IN set2 THEN
+            ADD element TO distinct_elements
+        END IF
+    END FOR
+
+    FOR EACH element IN set2 DO
+        IF element NOT IN set1 THEN
+            ADD element TO distinct_elements
+        END IF
+    END FOR
+
+    result_sum = SUM(distinct_elements)
+    PRINT "Output:", result_sum
+END
+
+/*problem 2*/
+VAR
+    vectors, n, i, j, result
+
+BEGIN
+    vectors = [1, 0, -1], [0, 1, 0], [1, 1, 1]
+    n = LENGTH(vectors)
+    result = TRUE
+
+    FOR i = 1 TO n DO
+        FOR j = i + 1 TO n DO
+            IF DOT_PRODUCT(vectors[i], vectors[j]) != 0 THEN
+                result = FALSE
+            END IF
+        END FOR
+END
